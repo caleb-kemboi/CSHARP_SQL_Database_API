@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PostbankCMSApiModelStoreContainer" CdmEntityContainer="PostbankCMSApiEntities">
+    <EntitySetMapping Name="CMSRecords">
+      <EntityTypeMapping TypeName="PostbankCMSApiModel.CMSRecord">
+        <MappingFragment StoreEntitySet="CMSRecords">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="batchNumber" ColumnName="batchNumber" />
+          <ScalarProperty Name="uploaded" ColumnName="uploaded" />
+          <ScalarProperty Name="Unit_Cost" ColumnName="Unit Cost" />
+          <ScalarProperty Name="Posting_Status" ColumnName="Posting Status" />
+          <ScalarProperty Name="TRX_Location" ColumnName="TRX Location" />
+          <ScalarProperty Name="Document_Number" ColumnName="Document Number" />
+          <ScalarProperty Name="Item_Description" ColumnName="Item Description" />
+          <ScalarProperty Name="TRX_QTY" ColumnName="TRX QTY" />
+          <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+          <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

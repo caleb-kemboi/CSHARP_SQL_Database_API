@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Contents.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMSRecords">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="batchNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="uploaded" Type="tinyint" />
+          <Property Name="Unit Cost" Type="decimal" Precision="18" Scale="4" />
+          <Property Name="Posting Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRX Location" Type="nvarchar" MaxLength="50" />
+          <Property Name="Document Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Item Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRX QTY" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateCreated" Type="datetime" />
+          <Property Name="dateModified" Type="datetime" />
+          <Property Name="ProdId" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProdName" Type="nvarchar" MaxLength="50" />
+          <Property Name="expiryDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="ContentsStoreContainer">
+          <EntitySet Name="CMSRecords" EntityType="Self.CMSRecords" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Contents" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CMSRecord">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="batchNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="uploaded" Type="Byte" />
+          <Property Name="Unit_Cost" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Posting_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRX_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Document_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Item_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRX_QTY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateCreated" Type="DateTime" Precision="3" />
+          <Property Name="dateModified" Type="DateTime" Precision="3" />
+          <Property Name="ProdId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProdName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="expiryDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="CMSPostbankEntity" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CMSRecords" EntityType="Self.CMSRecord" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ContentsStoreContainer" CdmEntityContainer="CMSPostbankEntity">
+          <EntitySetMapping Name="CMSRecords">
+            <EntityTypeMapping TypeName="Contents.CMSRecord">
+              <MappingFragment StoreEntitySet="CMSRecords">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="batchNumber" ColumnName="batchNumber" />
+                <ScalarProperty Name="uploaded" ColumnName="uploaded" />
+                <ScalarProperty Name="Unit_Cost" ColumnName="Unit Cost" />
+                <ScalarProperty Name="Posting_Status" ColumnName="Posting Status" />
+                <ScalarProperty Name="TRX_Location" ColumnName="TRX Location" />
+                <ScalarProperty Name="Document_Number" ColumnName="Document Number" />
+                <ScalarProperty Name="Item_Description" ColumnName="Item Description" />
+                <ScalarProperty Name="TRX_QTY" ColumnName="TRX QTY" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="dateModified" ColumnName="dateModified" />
+                <ScalarProperty Name="ProdId" ColumnName="ProdId" />
+                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
